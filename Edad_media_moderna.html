@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Sociedad en la Edad Media y la Edad Moderna</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root{
+  --blue:#233A5E;
+  --blue-2:#3A63A8;
+  --gold:#F4B93E;
+  --gold-dark:#D99B1E;
+  --red:#D6483F;
+  --red-dark:#A83128;
+  --green:#2F9E64;
+  --green-dark:#1F7A4A;
+  --purple:#7A52C9;
+  --purple-dark:#5A38A0;
+  --bg:#FDFAF2;
+  --ink:#242038;
+  --card:#FFFFFF;
+  --shadow: 0 10px 25px rgba(35,58,94,0.12);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Nunito', 'Trebuchet MS', sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  font-size:19px;
+  line-height:1.55;
+}
+h1,h2,h3,.display{
+  font-family:'Baloo 2','Trebuchet MS',sans-serif;
+}
+img,svg{max-width:100%;display:block;}
+
+/* ===== Barra de progreso "viaje en el tiempo" ===== */
+#timebar{
+  position:fixed; top:0; left:0; width:100%; height:8px; z-index:1000;
+  background:rgba(0,0,0,0.06);
+}
+#timebar-fill{
+  height:100%; width:0%;
+  background: linear-gradient(90deg, var(--red), var(--gold), var(--purple));
+  transition: width .1s linear;
+}
+#era-label{
+  position:fixed; top:12px; right:14px; z-index:1000;
+  background:var(--card); padding:6px 14px; border-radius:999px;
+  box-shadow:var(--shadow); font-weight:800; font-size:14px;
+  display:flex; align-items:center; gap:6px; color:var(--blue);
+  transition: color .3s ease;
+}
+
+.wrap{max-width:1000px; margin:0 auto; padding:0 22px;}
+
+section{padding:70px 0;}
+.section-title{
+  font-size:clamp(28px,4vw,42px);
+  font-weight:800;
+  text-align:center;
+  margin-bottom:8px;
+}
+.section-sub{
+  text-align:center; font-weight:700; color:#6b6483; margin-bottom:40px; font-size:18px;
+}
+.eyebrow{
+  display:inline-block; padding:5px 16px; border-radius:999px; font-weight:800;
+  font-size:14px; letter-spacing:.5px; margin-bottom:14px;
+}
+.eyebrow.media{background:#FBDEDB; color:var(--red-dark);}
+.eyebrow.moderna{background:#E5DAFA; color:var(--purple-dark);}
+.center{text-align:center;}
+
+/* ===== HERO ===== */
+#hero{
+  padding-top:110px; padding-bottom:60px;
+  background: linear-gradient(180deg, #FFF7E6 0%, var(--bg) 100%);
+  text-align:center;
+}
+#hero h1{
+  font-size:clamp(34px,6vw,58px);
+  color:var(--blue);
+  margin:10px 0 6px;
+}
+#hero .subt{
+  font-size:clamp(18px,2.5vw,24px);
+  font-weight:700;
+  color:var(--gold-dark);
+  margin-bottom:36px;
+}
+.hero-illustration{max-width:820px; margin:0 auto;}
+.scroll-hint{margin-top:26px; font-weight:700; color:#8b84a3; animation: bob 2s infinite;}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ===== Cajas de color ===== */
+.box{
+  border-radius:22px; padding:28px 30px; box-shadow:var(--shadow); margin-top:36px;
+}
+.box h3{margin-top:0; font-size:24px;}
+.box.yellow{background:#FFF3CE; border:3px solid var(--gold);}
+.box.green{background:#DFF6E7; border:3px solid var(--green);}
+.box ul{margin:10px 0 0; padding-left:22px;}
+.box li{margin-bottom:8px; font-weight:700;}
+
+/* ===== Cards ===== */
+.grid{
+  display:grid; gap:22px;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  margin-top:10px;
+}
+.card{
+  background:var(--card); border-radius:20px; padding:26px 20px;
+  box-shadow:var(--shadow); text-align:center;
+  transition:transform .25s ease, box-shadow .25s ease;
+  border-bottom:6px solid var(--gold);
+}
+.card:hover{transform:translateY(-8px); box-shadow:0 16px 32px rgba(35,58,94,0.18);}
+.card .emoji{font-size:52px; display:block; margin-bottom:12px;}
+.card h4{margin:6px 0 8px; font-size:20px;}
+.card p{margin:0; font-size:16px; color:#4a465e;}
+.card.red{border-bottom-color:var(--red);}
+.card.purple{border-bottom-color:var(--purple);}
+.card.green{border-bottom-color:var(--green);}
+.card.blue{border-bottom-color:var(--blue-2);}
+
+/* ===== Pirámide social ===== */
+.pyramid-wrap{max-width:520px; margin:44px auto 0; text-align:center;}
+.pyramid-level{
+  color:#fff; font-weight:800; padding:18px 10px; margin:0 auto 6px;
+  border-radius:12px; box-shadow:var(--shadow); font-size:16px;
+}
+.pyramid-level .em{font-size:26px; display:block; margin-bottom:4px;}
+.p1{width:34%; background:var(--gold-dark);}
+.p2{width:58%; background:var(--red);}
+.p3{width:100%; background:var(--blue-2);}
+
+/* ===== Diagrama feudalismo ===== */
+.flow{
+  display:flex; align-items:center; justify-content:center; gap:14px;
+  flex-wrap:wrap; margin-top:40px;
+}
+.flow .node{
+  background:var(--card); border-radius:16px; padding:20px 22px; text-align:center;
+  box-shadow:var(--shadow); min-width:130px; font-weight:800; border-top:6px solid var(--gold);
+}
+.flow .node .em{font-size:34px; display:block; margin-bottom:6px;}
+.flow .arrow{font-size:30px; color:var(--gold-dark); font-weight:900;}
+
+/* ===== Tabla comparativa ===== */
+.table-wrap{overflow-x:auto; margin-top:30px; border-radius:20px; box-shadow:var(--shadow);}
+table.compare{width:100%; border-collapse:collapse; background:var(--card); min-width:640px;}
+table.compare th{
+  font-family:'Baloo 2',sans-serif; font-size:20px; padding:16px; text-align:left;
+}
+table.compare th:nth-child(1){background:var(--blue); color:#fff; width:22%;}
+table.compare th:nth-child(2){background:var(--red); color:#fff;}
+table.compare th:nth-child(3){background:var(--purple); color:#fff;}
+table.compare td{padding:14px 16px; border-bottom:1px solid #eee2c9; font-weight:600; font-size:16px;}
+table.compare tr:nth-child(even){background:#FFFBF0;}
+table.compare td:first-child{font-weight:800; color:var(--blue);}
+
+/* ===== Resumen final ===== */
+.summary-cols{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:16px;}
+.summary-cols .col{background:#fff; border-radius:16px; padding:20px; box-shadow:var(--shadow);}
+.summary-cols h4{margin-top:0;}
+.summary-cols ul{list-style:none; padding:0; margin:0;}
+.summary-cols li{padding:6px 0; font-weight:700;}
+@media(max-width:560px){.summary-cols{grid-template-columns:1fr;}}
+
+/* ===== Quiz ===== */
+#quiz-score{
+  text-align:center; font-weight:800; font-size:20px; color:var(--blue);
+  background:#fff; display:inline-block; padding:8px 22px; border-radius:999px;
+  box-shadow:var(--shadow); margin:0 auto 30px; display:block; width:fit-content;
+}
+.q-card{
+  background:var(--card); border-radius:20px; padding:24px; margin-bottom:22px; box-shadow:var(--shadow);
+}
+.q-card h4{margin:0 0 14px; font-size:19px;}
+.opt{
+  display:block; width:100%; text-align:left; padding:12px 16px; margin-bottom:10px;
+  border-radius:12px; border:2px solid #e6e1cf; background:#fffef8; cursor:pointer;
+  font-family:inherit; font-size:16px; font-weight:700; color:var(--ink);
+  transition:all .15s ease;
+}
+.opt:hover{border-color:var(--gold);}
+.opt.correct{background:#DFF6E7; border-color:var(--green); color:var(--green-dark);}
+.opt.wrong{background:#FBDEDB; border-color:var(--red); color:var(--red-dark);}
+.opt[disabled]{cursor:default;}
+.feedback{margin-top:10px; font-weight:800; font-size:15px;}
+.feedback.ok{color:var(--green-dark);}
+.feedback.bad{color:var(--red-dark);}
+
+footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
+
+.divider{
+  height:6px; width:90px; margin:18px auto 0; border-radius:3px;
+  background:linear-gradient(90deg,var(--red),var(--gold),var(--purple));
+}
+</style>
+</head>
+<body>
+
+<div id="timebar"><div id="timebar-fill"></div></div>
+<div id="era-label">🕰️ <span id="era-text">Portada</span></div>
+
+<!-- ===================== PORTADA ===================== -->
+<header id="hero">
+  <div class="wrap">
+    <div class="hero-illustration">
+      <svg viewBox="0 0 820 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- cielo -->
+        <rect x="0" y="0" width="820" height="220" fill="#FFE9B8"/>
+        <circle cx="700" cy="60" r="34" fill="#F4B93E"/>
+        <!-- suelo -->
+        <rect x="0" y="220" width="820" height="80" fill="#CDE7C6"/>
+        <!-- CASTILLO (izquierda) -->
+        <g>
+          <rect x="40" y="150" width="180" height="80" fill="#B85C4F"/>
+          <rect x="30" y="120" width="35" height="50" fill="#A44639"/>
+          <polygon points="30,120 47,95 65,120" fill="#7A2E24"/>
+          <rect x="195" y="120" width="35" height="50" fill="#A44639"/>
+          <polygon points="195,120 212,95 230,120" fill="#7A2E24"/>
+          <rect x="105" y="100" width="45" height="70" fill="#C46A5B"/>
+          <polygon points="105,100 127,72 150,100" fill="#7A2E24"/>
+          <rect x="118" y="185" width="20" height="45" fill="#5B2E22"/>
+          <rect x="40" y="140" width="180" height="10" fill="#7A2E24"/>
+          <line x1="127" y1="72" x2="127" y2="55" stroke="#5B2E22" stroke-width="3"/>
+          <polygon points="127,55 145,62 127,69" fill="#D6483F"/>
+        </g>
+        <!-- CIUDAD MODERNA (derecha) -->
+        <g>
+          <rect x="560" y="150" width="30" height="80" fill="#3A63A8"/>
+          <rect x="600" y="120" width="34" height="110" fill="#233A5E"/>
+          <rect x="644" y="160" width="28" height="70" fill="#7A52C9"/>
+          <rect x="682" y="135" width="34" height="95" fill="#3A63A8"/>
+          <rect x="726" y="170" width="26" height="60" fill="#233A5E"/>
+          <!-- barco -->
+          <polygon points="440,225 500,225 485,245 455,245" fill="#7A2E24"/>
+          <line x1="470" y1="225" x2="470" y2="185" stroke="#5B2E22" stroke-width="3"/>
+          <polygon points="470,188 500,205 470,215" fill="#FDFAF2"/>
+          <polygon points="470,188 445,203 470,210" fill="#F4B93E"/>
+        </g>
+        <!-- flecha del tiempo -->
+        <line x1="250" y1="255" x2="420" y2="255" stroke="#D99B1E" stroke-width="4" stroke-dasharray="8,6"/>
+        <polygon points="420,248 438,255 420,262" fill="#D99B1E"/>
+        <text x="330" y="245" text-anchor="middle" font-size="14" font-weight="800" fill="#A83128">476 → 1492 → 1789</text>
+      </svg>
+    </div>
+    <h1>La Sociedad en la Edad Media<br>y la Edad Moderna</h1>
+    <p class="subt">📚 Resumen fácil para estudiar</p>
+    <div class="scroll-hint">⬇️ Bajá para empezar el viaje en el tiempo</div>
+  </div>
+</header>
+
+<!-- ===================== 2. QUÉ FUE LA EDAD MEDIA ===================== -->
+<section data-era="media">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow media">Edad Media</span></div>
+    <h2 class="section-title">¿Qué fue la Edad Media?</h2>
+    <p class="section-sub">Una época que duró casi 1000 años</p>
+
+    <p>La Edad Media <strong>empezó en el año 476</strong>, cuando cayó el Imperio Romano. <strong>Terminó en 1492</strong>, cuando Cristóbal Colón llegó a América. En total, duró casi 1000 años.</p>
+    <p>Durante esta época, casi toda la gente vivía en el campo. Trabajaban la tierra y vivían cerca de castillos, porque ahí se sentían protegidos.</p>
+
+    <div class="grid">
+      <div class="card red"><span class="emoji">🏰</span><h4>Castillo</h4><p>Ahí vivían los reyes y nobles. Protegía a la gente.</p></div>
+      <div class="card red"><span class="emoji">👑</span><h4>Rey</h4><p>Gobernaba todo el reino.</p></div>
+      <div class="card red"><span class="emoji">⚔️</span><h4>Caballero</h4><p>Luchaba para proteger al reino.</p></div>
+      <div class="card red"><span class="emoji">🌾</span><h4>Campesinos</h4><p>Trabajaban la tierra todos los días.</p></div>
+    </div>
+
+    <div class="box yellow">
+      <h3>💡 Lo importante</h3>
+      <ul>
+        <li>La Edad Media duró desde el año 476 hasta 1492.</li>
+        <li>La mayoría de la gente vivía en el campo.</li>
+        <li>El rey y los nobles tenían todo el poder.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3. SOCIEDAD EN LA EDAD MEDIA ===================== -->
+<section data-era="media" style="background:#FFF3EF;">
+  <div class="wrap">
+    <h2 class="section-title">La sociedad en la Edad Media</h2>
+    <p class="section-sub">No todos vivían igual</p>
+
+    <div class="grid">
+      <div class="card red"><span class="emoji">👑</span><h4>Rey</h4><p>Gobernaba el reino y daba tierras a los nobles.</p></div>
+      <div class="card red"><span class="emoji">🏰</span><h4>Nobles</h4><p>Tenían tierras y soldados. Protegían al pueblo.</p></div>
+      <div class="card red"><span class="emoji">⛪</span><h4>Clero</h4><p>Curas y monjes. Enseñaban religión.</p></div>
+      <div class="card red"><span class="emoji">🌾</span><h4>Campesinos</h4><p>Trabajaban la tierra. Eran la mayoría.</p></div>
+    </div>
+
+    <div class="pyramid-wrap">
+      <div class="pyramid-level p1"><span class="em">👑</span>Rey</div>
+      <div class="pyramid-level p2"><span class="em">🏰⛪</span>Nobles y Clero</div>
+      <div class="pyramid-level p3"><span class="em">🌾</span>Campesinos (la mayoría)</div>
+    </div>
+    <p class="center" style="margin-top:14px; font-weight:700; color:#6b6483;">Arriba había poca gente con mucho poder. Abajo había mucha gente con poco poder.</p>
+  </div>
+</section>
+
+<!-- ===================== 4. ECONOMÍA EDAD MEDIA ===================== -->
+<section data-era="media">
+  <div class="wrap">
+    <h2 class="section-title">Economía de la Edad Media</h2>
+    <p class="section-sub">¿Cómo conseguía todo la gente?</p>
+
+    <div class="grid">
+      <div class="card red"><span class="emoji">🌾</span><h4>Agricultura</h4><p>Cultivaban trigo, cebada y uvas.</p></div>
+      <div class="card red"><span class="emoji">🐄</span><h4>Ganadería</h4><p>Criaban vacas, ovejas y cerdos.</p></div>
+      <div class="card red"><span class="emoji">🥖</span><h4>Trueque</h4><p>Cambiaban productos porque casi no había monedas.</p></div>
+      <div class="card red"><span class="emoji">🪙</span><h4>Feudalismo</h4><p>El rey daba tierras a cambio de lealtad y trabajo.</p></div>
+    </div>
+
+    <h3 class="center" style="margin-top:50px;">¿Cómo funcionaba el feudalismo?</h3>
+    <div class="flow">
+      <div class="node"><span class="em">👑</span>Rey<br><small>da tierras</small></div>
+      <div class="arrow">↓</div>
+      <div class="node"><span class="em">🏰</span>Nobles<br><small>dan protección</small></div>
+      <div class="arrow">↓</div>
+      <div class="node"><span class="em">🌾</span>Campesinos<br><small>trabajan la tierra</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5. CÓMO ERA LA VIDA ===================== -->
+<section data-era="media" style="background:#FFF3EF;">
+  <div class="wrap">
+    <h2 class="section-title">¿Cómo era la vida?</h2>
+    <p class="section-sub">Un día común en la Edad Media</p>
+
+    <div class="grid">
+      <div class="card red"><span class="emoji">🏠</span><h4>Casas</h4><p>De madera y barro. Muy simples.</p></div>
+      <div class="card red"><span class="emoji">🍞</span><h4>Comida</h4><p>Pan, sopas y verduras. Poca carne.</p></div>
+      <div class="card red"><span class="emoji">📖</span><h4>Educación</h4><p>Casi nadie sabía leer. Solo curas y nobles.</p></div>
+      <div class="card red"><span class="emoji">⛪</span><h4>Iglesia</h4><p>Muy importante. Todos iban a misa.</p></div>
+      <div class="card red"><span class="emoji">⚔️</span><h4>Guerras</h4><p>Eran comunes entre reinos.</p></div>
+      <div class="card red"><span class="emoji">☠️</span><h4>Enfermedades</h4><p>La peste mató a millones de personas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 6. QUÉ FUE LA EDAD MODERNA ===================== -->
+<section data-era="moderna">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow moderna">Edad Moderna</span></div>
+    <h2 class="section-title">¿Qué fue la Edad Moderna?</h2>
+    <p class="section-sub">El mundo se hace más grande</p>
+
+    <p>La Edad Moderna <strong>empezó en 1492</strong>, con el descubrimiento de América. <strong>Terminó en 1789</strong>, con la Revolución Francesa.</p>
+    <p>Los barcos empezaron a viajar a lugares nuevos del mundo. El comercio creció mucho y las ciudades se volvieron más importantes que antes.</p>
+
+    <div class="grid">
+      <div class="card purple"><span class="emoji">🚢</span><h4>Barcos</h4><p>Viajaban a lugares nunca antes vistos.</p></div>
+      <div class="card purple"><span class="emoji">🗺️</span><h4>Mapas</h4><p>Se dibujaban nuevas rutas y tierras.</p></div>
+      <div class="card purple"><span class="emoji">🌎</span><h4>América</h4><p>Un continente nuevo para los europeos.</p></div>
+      <div class="card purple"><span class="emoji">💰</span><h4>Comercio</h4><p>Se vendían productos de todo el mundo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 7. SOCIEDAD EDAD MODERNA ===================== -->
+<section data-era="moderna" style="background:#F3EEFB;">
+  <div class="wrap">
+    <h2 class="section-title">Sociedad en la Edad Moderna</h2>
+    <p class="section-sub">Aparece un grupo nuevo</p>
+
+    <div class="grid">
+      <div class="card purple"><span class="emoji">👑</span><h4>Rey</h4><p>Tenía aún más poder que antes.</p></div>
+      <div class="card purple"><span class="emoji">🏰</span><h4>Nobleza</h4><p>Seguía teniendo privilegios.</p></div>
+      <div class="card purple"><span class="emoji">⛪</span><h4>Clero</h4><p>Seguía siendo muy importante.</p></div>
+      <div class="card purple"><span class="emoji">💰</span><h4>Burguesía</h4><p>Comerciantes y banqueros ricos. ¡Un grupo nuevo!</p></div>
+      <div class="card purple"><span class="emoji">🌾</span><h4>Campesinos</h4><p>Seguían trabajando la tierra.</p></div>
+      <div class="card purple"><span class="emoji">🏪</span><h4>Comerciantes</h4><p>Vendían productos de todo el mundo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8. ECONOMÍA EDAD MODERNA ===================== -->
+<section data-era="moderna">
+  <div class="wrap">
+    <h2 class="section-title">Economía de la Edad Moderna</h2>
+    <p class="section-sub">El dinero se vuelve protagonista</p>
+
+    <div class="grid">
+      <div class="card purple"><span class="emoji">🚢</span><h4>Comercio</h4><p>Se vendían productos de América, Asia y Europa.</p></div>
+      <div class="card purple"><span class="emoji">💰</span><h4>Dinero</h4><p>Se usaba mucho más que en la Edad Media.</p></div>
+      <div class="card purple"><span class="emoji">🏪</span><h4>Bancos</h4><p>Aparecieron para guardar y prestar dinero.</p></div>
+      <div class="card purple"><span class="emoji">🌍</span><h4>Mercados</h4><p>Las ciudades tenían grandes mercados.</p></div>
+    </div>
+    <p class="center" style="margin-top:30px; font-weight:700;">Así nació el <strong>comercio mundial</strong>: por primera vez, países muy lejanos intercambiaban productos.</p>
+  </div>
+</section>
+
+<!-- ===================== 9. INVENTOS ===================== -->
+<section data-era="moderna" style="background:#F3EEFB;">
+  <div class="wrap">
+    <h2 class="section-title">Inventos importantes</h2>
+    <p class="section-sub">Nuevas herramientas que cambiaron todo</p>
+
+    <div class="grid">
+      <div class="card purple"><span class="emoji">🖨️</span><h4>Imprenta</h4><p>Permitió copiar libros muy rápido. La inventó Gutenberg.</p></div>
+      <div class="card purple"><span class="emoji">🧭</span><h4>Brújula</h4><p>Ayudó a los barcos a no perderse en el mar.</p></div>
+      <div class="card purple"><span class="emoji">🗺️</span><h4>Mapas</h4><p>Mejoraron mucho gracias a los viajes.</p></div>
+      <div class="card purple"><span class="emoji">🚢</span><h4>Barcos</h4><p>Las carabelas eran más rápidas y seguras.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 10. TABLA COMPARATIVA ===================== -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Diferencias entre las dos épocas</h2>
+    <p class="section-sub">Todo, lado a lado</p>
+
+    <div class="table-wrap">
+      <table class="compare">
+        <thead>
+          <tr><th>Tema</th><th>🏰 Edad Media</th><th>🚢 Edad Moderna</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sociedad</td><td>👑 Rey, nobles y campesinos</td><td>💰 Rey, nobleza y burguesía nueva</td></tr>
+          <tr><td>Economía</td><td>🌾 Agricultura y trueque</td><td>🚢 Comercio mundial y dinero</td></tr>
+          <tr><td>Religión</td><td>⛪ La Iglesia dominaba todo</td><td>⛪ Importante, pero surgen nuevas ideas</td></tr>
+          <tr><td>Educación</td><td>📖 Casi nadie sabía leer</td><td>📚 Más gente aprendía a leer</td></tr>
+          <tr><td>Comercio</td><td>🐎 Local, entre pueblos cercanos</td><td>🌍 Internacional, entre continentes</td></tr>
+          <tr><td>Inventos</td><td>🗡️ Armas simples, molinos</td><td>🖨️ Imprenta, brújula, barcos</td></tr>
+          <tr><td>Vivienda</td><td>🏚️ Casas simples de madera</td><td>🏘️ Casas y ciudades más grandes</td></tr>
+          <tr><td>Trabajo</td><td>🌾 Campo y agricultura</td><td>🏪 Comercio y talleres</td></tr>
+          <tr><td>Ciudades</td><td>🏘️ Pocas y pequeñas</td><td>🏙️ Más grandes e importantes</td></tr>
+          <tr><td>Campo</td><td>🚜 Casi todos vivían ahí</td><td>🏙️ Menos gente vivía en el campo</td></tr>
+          <tr><td>Gobierno</td><td>🏰 Feudalismo, poder repartido</td><td>👑 Monarquías con mucho poder</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 11. RESUMEN FINAL ===================== -->
+<section style="background:#EAF7EF;">
+  <div class="wrap">
+    <h2 class="section-title">Resumen final</h2>
+    <div class="box green">
+      <h3>✅ Lo que debes recordar</h3>
+      <div class="summary-cols">
+        <div class="col">
+          <h4>🏰 Edad Media</h4>
+          <ul>
+            <li>✔ Castillos</li>
+            <li>✔ Agricultura</li>
+            <li>✔ Feudalismo</li>
+            <li>✔ Iglesia</li>
+            <li>✔ Campesinos</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>🚢 Edad Moderna</h4>
+          <ul>
+            <li>✔ Comercio</li>
+            <li>✔ América</li>
+            <li>✔ Dinero</li>
+            <li>✔ Imprenta</li>
+            <li>✔ Burguesía</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 12. QUIZ ===================== -->
+<section id="quiz-section">
+  <div class="wrap">
+    <h2 class="section-title">Mini cuestionario 🧠</h2>
+    <p class="section-sub">Elegí una respuesta para cada pregunta</p>
+    <div id="quiz-score">Aciertos: 0 / 15</div>
+    <div id="quiz-container"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="divider"></div>
+  <p style="margin-top:14px;">Hecho para estudiar la Edad Media y la Edad Moderna 🏰🚢</p>
+</footer>
+
+<script>
+/* ===== Barra de progreso "viaje en el tiempo" ===== */
+const fill = document.getElementById('timebar-fill');
+const eraText = document.getElementById('era-text');
+const eraLabel = document.getElementById('era-label');
+const sections = document.querySelectorAll('section[data-era]');
+
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  fill.style.width = scrolled + '%';
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const era = entry.target.getAttribute('data-era');
+      if(era === 'media'){
+        eraText.textContent = 'Edad Media (476–1492)';
+        eraLabel.style.color = '#A83128';
+      } else if(era === 'moderna'){
+        eraText.textContent = 'Edad Moderna (1492–1789)';
+        eraLabel.style.color = '#5A38A0';
+      }
+    }
+  });
+}, {threshold:0.5});
+sections.forEach(s => observer.observe(s));
+
+/* ===== Quiz ===== */
+const questions = [
+  {q:"¿En qué año empezó la Edad Media?", opts:["1492","476","1789","1000"], correct:1, why:"La Edad Media empezó en el año 476, cuando cayó el Imperio Romano."},
+  {q:"¿En qué año terminó la Edad Media?", opts:["1492","476","1600","1800"], correct:0, why:"Terminó en 1492, cuando Colón llegó a América."},
+  {q:"¿Quién tenía todo el poder en la Edad Media?", opts:["Los campesinos","El Rey","Los comerciantes","Los banqueros"], correct:1, why:"El rey gobernaba todo el reino."},
+  {q:"¿Qué grupo era la mayoría de la población en la Edad Media?", opts:["Nobles","Clero","Campesinos","Reyes"], correct:2, why:"Los campesinos eran la mayoría de la gente."},
+  {q:"¿Qué es el feudalismo?", opts:["Un tipo de comida","Un sistema donde el rey daba tierras a cambio de lealtad","Un invento","Una ciudad"], correct:1, why:"El feudalismo era un sistema donde el rey daba tierras a los nobles a cambio de lealtad y trabajo."},
+  {q:"¿Qué enfermedad mató a millones de personas en la Edad Media?", opts:["Gripe","Peste","Varicela","Sarampión"], correct:1, why:"La peste fue una enfermedad muy grave que mató a millones de personas."},
+  {q:"¿Qué grupo protegía al pueblo con soldados?", opts:["Campesinos","Clero","Nobles","Comerciantes"], correct:2, why:"Los nobles tenían soldados para proteger al pueblo."},
+  {q:"¿Qué evento marca el inicio de la Edad Moderna?", opts:["Caída de Roma","Descubrimiento de América","Revolución Francesa","Invención de la imprenta"], correct:1, why:"La Edad Moderna empezó en 1492, con el descubrimiento de América."},
+  {q:"¿Quién inventó la imprenta?", opts:["Colón","Gutenberg","Magallanes","Da Vinci"], correct:1, why:"Gutenberg inventó la imprenta, que permitió copiar libros rápido."},
+  {q:"¿Qué instrumento ayudaba a los barcos a no perderse?", opts:["Reloj","Brújula","Telescopio","Mapa antiguo"], correct:1, why:"La brújula ayudaba a los barcos a orientarse en el mar."},
+  {q:"¿Qué nuevo grupo social apareció en la Edad Moderna?", opts:["Campesinos","Burguesía","Clero","Nobleza"], correct:1, why:"La burguesía eran comerciantes y banqueros ricos, un grupo nuevo."},
+  {q:"¿Qué pasó con el comercio en la Edad Moderna?", opts:["Desapareció","Se quedó igual","Creció mucho","Solo era local"], correct:2, why:"El comercio creció mucho y se volvió mundial."},
+  {q:"¿Qué institución era muy importante en ambas épocas?", opts:["Los bancos","La Iglesia","Las universidades","Los periódicos"], correct:1, why:"La Iglesia fue muy importante tanto en la Edad Media como en la Edad Moderna."},
+  {q:"¿Dónde vivía la mayoría de la gente en la Edad Media?", opts:["En el campo","En grandes ciudades","En el mar","En castillos"], correct:0, why:"Casi todos vivían en el campo, trabajando la tierra."},
+  {q:"¿Qué apareció en la Edad Moderna para guardar y prestar dinero?", opts:["Mercados","Bancos","Ferias","Talleres"], correct:1, why:"Los bancos aparecieron para guardar y prestar dinero."}
+];
+
+const container = document.getElementById('quiz-container');
+const scoreEl = document.getElementById('quiz-score');
+let score = 0;
+let answered = 0;
+
+questions.forEach((item, i) => {
+  const card = document.createElement('div');
+  card.className = 'q-card';
+
+  const title = document.createElement('h4');
+  title.textContent = (i+1) + '. ' + item.q;
+  card.appendChild(title);
+
+  const feedback = document.createElement('div');
+  feedback.className = 'feedback';
+
+  item.opts.forEach((opt, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.textContent = opt;
+    btn.addEventListener('click', () => {
+      const buttons = card.querySelectorAll('.opt');
+      buttons.forEach(b => b.disabled = true);
+
+      if(idx === item.correct){
+        btn.classList.add('correct');
+        feedback.textContent = '¡Correcto! ' + item.why;
+        feedback.className = 'feedback ok';
+        score++;
+      } else {
+        btn.classList.add('wrong');
+        buttons[item.correct].classList.add('correct');
+        feedback.textContent = 'Inténtalo otra vez. ' + item.why;
+        feedback.className = 'feedback bad';
+      }
+      answered++;
+      scoreEl.textContent = 'Aciertos: ' + score + ' / ' + questions.length;
+    });
+    card.appendChild(btn);
+  });
+
+  card.appendChild(feedback);
+  container.appendChild(card);
+});
+</script>
+</body>
+</html>
