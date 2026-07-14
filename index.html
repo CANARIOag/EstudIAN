@@ -26,6 +26,7 @@
 
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
+html,body{max-width:100%;overflow-x:hidden;}
 body{
   margin:0;
   font-family:'Nunito', 'Trebuchet MS', sans-serif;
@@ -55,6 +56,10 @@ img,svg{max-width:100%;display:block;}
   box-shadow:var(--shadow); font-weight:800; font-size:14px;
   display:flex; align-items:center; gap:6px; color:var(--blue);
   transition: color .3s ease;
+  max-width:60vw;
+}
+#era-label span{
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
 
 .wrap{max-width:1000px; margin:0 auto; padding:0 22px;}
@@ -84,12 +89,12 @@ section{padding:70px 0;}
   text-align:center;
 }
 #hero h1{
-  font-size:clamp(34px,6vw,58px);
+  font-size:clamp(30px,6vw,58px);
   color:var(--blue);
   margin:10px 0 6px;
 }
 #hero .subt{
-  font-size:clamp(18px,2.5vw,24px);
+  font-size:clamp(17px,2.5vw,24px);
   font-weight:700;
   color:var(--gold-dark);
   margin-bottom:36px;
@@ -153,7 +158,7 @@ section{padding:70px 0;}
 .flow .arrow{font-size:30px; color:var(--gold-dark); font-weight:900;}
 
 /* ===== Tabla comparativa ===== */
-.table-wrap{overflow-x:auto; margin-top:30px; border-radius:20px; box-shadow:var(--shadow);}
+.table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch; margin-top:30px; border-radius:20px; box-shadow:var(--shadow);}
 table.compare{width:100%; border-collapse:collapse; background:var(--card); min-width:640px;}
 table.compare th{
   font-family:'Baloo 2',sans-serif; font-size:20px; padding:16px; text-align:left;
@@ -181,13 +186,14 @@ table.compare td:first-child{font-weight:800; color:var(--blue);}
 }
 .q-card{
   background:var(--card); border-radius:20px; padding:24px; margin-bottom:22px; box-shadow:var(--shadow);
+  overflow:hidden;
 }
-.q-card h4{margin:0 0 14px; font-size:19px;}
+.q-card h4{margin:0 0 14px; font-size:19px; word-wrap:break-word;}
 .opt{
   display:block; width:100%; text-align:left; padding:12px 16px; margin-bottom:10px;
   border-radius:12px; border:2px solid #e6e1cf; background:#fffef8; cursor:pointer;
   font-family:inherit; font-size:16px; font-weight:700; color:var(--ink);
-  transition:all .15s ease;
+  transition:all .15s ease; word-wrap:break-word;
 }
 .opt:hover{border-color:var(--gold);}
 .opt.correct{background:#DFF6E7; border-color:var(--green); color:var(--green-dark);}
@@ -199,7 +205,7 @@ table.compare td:first-child{font-weight:800; color:var(--blue);}
 
 /* ===== Animación de aparición al hacer scroll ===== */
 .reveal{opacity:0; transform:translateY(36px); transition:opacity .7s ease, transform .7s ease;}
-.reveal.visible{opacity:1; transform:translateY(0);}
+.reveal.visible{opacity:1; transform:none;}
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1; transform:none; transition:none;}
 }
@@ -215,7 +221,7 @@ table.compare td:first-child{font-weight:800; color:var(--blue);}
 .tf-btn{
   padding:12px 34px; border-radius:12px; border:2px solid #e6e1cf; background:#fffef8;
   font-weight:800; cursor:pointer; font-size:16px; font-family:inherit; color:var(--ink);
-  transition:all .15s ease;
+  transition:all .15s ease; flex:1 1 120px; max-width:220px;
 }
 .tf-btn:hover{border-color:var(--gold);}
 .tf-btn.correct{background:#DFF6E7; border-color:var(--green); color:var(--green-dark);}
@@ -226,7 +232,7 @@ table.compare td:first-child{font-weight:800; color:var(--blue);}
 .fill-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
 .fill-input{
   flex:1; min-width:160px; padding:11px 14px; border-radius:10px; border:2px solid #e6e1cf;
-  font-size:16px; font-family:inherit; font-weight:700; color:var(--ink);
+  font-size:16px; font-family:inherit; font-weight:700; color:var(--ink); width:100%;
 }
 .fill-input:focus{outline:none; border-color:var(--gold);}
 .fill-input.correct{border-color:var(--green); background:#DFF6E7;}
@@ -244,19 +250,46 @@ table.compare td:first-child{font-weight:800; color:var(--blue);}
 .match-item{
   padding:13px 14px; border-radius:12px; border:2px solid #e6e1cf; background:#fffef8;
   cursor:pointer; font-weight:700; text-align:left; font-size:15px; font-family:inherit;
-  transition:all .15s ease; color:var(--ink);
+  transition:all .15s ease; color:var(--ink); word-wrap:break-word; overflow-wrap:break-word;
 }
 .match-item.selected{border-color:var(--gold); background:#FFF3CE;}
 .match-item.matched{border-color:var(--green); background:#DFF6E7; color:var(--green-dark); cursor:default;}
 .match-item.wrong-flash{border-color:var(--red); background:#FBDEDB;}
 .match-progress{text-align:center; margin-top:14px; font-weight:800; color:var(--blue);}
-@media(max-width:560px){.match-wrap{grid-template-columns:1fr;}}
+@media(max-width:640px){.match-wrap{grid-template-columns:1fr;}}
 
 footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
 
 .divider{
   height:6px; width:90px; margin:18px auto 0; border-radius:3px;
   background:linear-gradient(90deg,var(--red),var(--gold),var(--purple));
+}
+
+/* ===== Ajustes responsive para celulares ===== */
+@media(max-width:600px){
+  body{font-size:17px;}
+  .wrap{padding:0 16px;}
+  section{padding:48px 0;}
+  #hero{padding-top:90px; padding-bottom:40px;}
+  .section-sub{margin-bottom:28px; font-size:16px;}
+  .box{padding:22px 18px;}
+  .grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:14px;}
+  .card{padding:20px 14px;}
+  .card .emoji{font-size:42px; margin-bottom:8px;}
+  .card h4{font-size:17px;}
+  .card p{font-size:14.5px;}
+  .flow{gap:8px;}
+  .flow .node{padding:14px 16px; min-width:100px; font-size:14px;}
+  .flow .arrow{font-size:22px;}
+  table.compare th{font-size:16px; padding:12px;}
+  table.compare td{font-size:14px; padding:10px 12px;}
+  .q-card{padding:16px; margin-bottom:16px;}
+  .q-card h4{font-size:17px;}
+  .opt{font-size:15px; padding:11px 14px;}
+  .quiz-type-label{font-size:20px; margin:34px 0 16px;}
+  .tf-btn{padding:11px 18px; font-size:15px;}
+  .match-item{font-size:14px; padding:11px 12px;}
+  #era-label{font-size:12px; padding:5px 10px;}
 }
 </style>
 </head>
@@ -744,7 +777,10 @@ const observer = new IntersectionObserver((entries) => {
 }, {threshold:0.5});
 sections.forEach(s => observer.observe(s));
 
-/* ===== Animación de aparición al hacer scroll ===== */
+/* ===== Animación de aparición al hacer scroll =====
+   Se usa rootMargin en vez de un threshold alto para que
+   funcione bien también en secciones muy largas (como el quiz)
+   y en pantallas chicas de celular. */
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
@@ -752,8 +788,12 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, {threshold:0.12});
+}, {threshold:0, rootMargin:'0px 0px -10% 0px'});
+
 document.querySelectorAll('body > section').forEach(s => {
+  // La sección del quiz es muy larga y es contenido interactivo:
+  // no la ocultamos con la animación para que nunca quede invisible.
+  if(s.id === 'quiz-section') return;
   s.classList.add('reveal');
   revealObserver.observe(s);
 });
