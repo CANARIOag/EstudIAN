@@ -197,6 +197,61 @@ table.compare td:first-child{font-weight:800; color:var(--blue);}
 .feedback.ok{color:var(--green-dark);}
 .feedback.bad{color:var(--red-dark);}
 
+/* ===== Animación de aparición al hacer scroll ===== */
+.reveal{opacity:0; transform:translateY(36px); transition:opacity .7s ease, transform .7s ease;}
+.reveal.visible{opacity:1; transform:translateY(0);}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1; transform:none; transition:none;}
+}
+
+/* ===== Etiquetas de tipo de pregunta ===== */
+.quiz-type-label{
+  display:block; text-align:center; margin:46px 0 20px; font-weight:800; font-size:24px; color:var(--blue);
+}
+.quiz-type-sub{text-align:center; color:#6b6483; font-weight:700; margin:-14px 0 26px; font-size:15px;}
+
+/* ===== Verdadero / Falso ===== */
+.tf-buttons{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+.tf-btn{
+  padding:12px 34px; border-radius:12px; border:2px solid #e6e1cf; background:#fffef8;
+  font-weight:800; cursor:pointer; font-size:16px; font-family:inherit; color:var(--ink);
+  transition:all .15s ease;
+}
+.tf-btn:hover{border-color:var(--gold);}
+.tf-btn.correct{background:#DFF6E7; border-color:var(--green); color:var(--green-dark);}
+.tf-btn.wrong{background:#FBDEDB; border-color:var(--red); color:var(--red-dark);}
+.tf-btn[disabled]{cursor:default;}
+
+/* ===== Completar la palabra ===== */
+.fill-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+.fill-input{
+  flex:1; min-width:160px; padding:11px 14px; border-radius:10px; border:2px solid #e6e1cf;
+  font-size:16px; font-family:inherit; font-weight:700; color:var(--ink);
+}
+.fill-input:focus{outline:none; border-color:var(--gold);}
+.fill-input.correct{border-color:var(--green); background:#DFF6E7;}
+.fill-input.wrong{border-color:var(--red); background:#FBDEDB;}
+.fill-btn{
+  padding:11px 22px; border-radius:10px; border:none; background:var(--gold-dark); color:#fff;
+  font-weight:800; cursor:pointer; font-family:inherit; font-size:15px;
+}
+.fill-btn:hover{background:var(--red-dark);}
+.fill-btn[disabled]{opacity:.6; cursor:default;}
+
+/* ===== Relacionar conceptos ===== */
+.match-wrap{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:6px;}
+.match-col{display:flex; flex-direction:column; gap:10px;}
+.match-item{
+  padding:13px 14px; border-radius:12px; border:2px solid #e6e1cf; background:#fffef8;
+  cursor:pointer; font-weight:700; text-align:left; font-size:15px; font-family:inherit;
+  transition:all .15s ease; color:var(--ink);
+}
+.match-item.selected{border-color:var(--gold); background:#FFF3CE;}
+.match-item.matched{border-color:var(--green); background:#DFF6E7; color:var(--green-dark); cursor:default;}
+.match-item.wrong-flash{border-color:var(--red); background:#FBDEDB;}
+.match-progress{text-align:center; margin-top:14px; font-weight:800; color:var(--blue);}
+@media(max-width:560px){.match-wrap{grid-template-columns:1fr;}}
+
 footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
 
 .divider{
@@ -287,6 +342,24 @@ footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
   </div>
 </section>
 
+<!-- ===================== 2b. EL TERRITORIO EN LA EDAD MEDIA ===================== -->
+<section data-era="media">
+  <div class="wrap">
+    <h2 class="section-title">El territorio en la Edad Media</h2>
+    <p class="section-sub">Europa no era un solo país</p>
+
+    <p>A fines de la Edad Media, el territorio europeo estaba ocupado por <strong>varios reinos cristianos</strong> (como Francia, Castilla o Inglaterra), cada uno con su propio rey.</p>
+    <p>En el actual territorio de Italia no había un rey: existían <strong>pequeñas repúblicas</strong> que vivían del comercio marítimo, sobre todo <strong>Venecia, Génova y Pisa</strong>.</p>
+    <p>Al este de Europa estaba el <strong>Imperio Bizantino</strong>, gobernado por un emperador que tenía poder absoluto: decidía todo él solo, sin compartirlo con nadie.</p>
+
+    <div class="grid">
+      <div class="card red"><span class="emoji">👑</span><h4>Reinos cristianos</h4><p>Francia, Castilla, Inglaterra y muchos más.</p></div>
+      <div class="card red"><span class="emoji">🏛️</span><h4>Imperio Bizantino</h4><p>Un emperador con poder absoluto, al este de Europa.</p></div>
+      <div class="card red"><span class="emoji">⛵</span><h4>Repúblicas italianas</h4><p>Venecia, Génova y Pisa vivían del comercio marítimo.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== 3. SOCIEDAD EN LA EDAD MEDIA ===================== -->
 <section data-era="media" style="background:#FFF3EF;">
   <div class="wrap">
@@ -306,6 +379,23 @@ footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
       <div class="pyramid-level p3"><span class="em">🌾</span>Campesinos (la mayoría)</div>
     </div>
     <p class="center" style="margin-top:14px; font-weight:700; color:#6b6483;">Arriba había poca gente con mucho poder. Abajo había mucha gente con poco poder.</p>
+  </div>
+</section>
+
+<!-- ===================== 3b. ESTAMENTOS EN PROFUNDIDAD ===================== -->
+<section data-era="media">
+  <div class="wrap">
+    <h2 class="section-title">Los estamentos, en profundidad</h2>
+    <p class="section-sub">Grupos sociales de por vida</p>
+
+    <p>La sociedad medieval estaba organizada en <strong>estamentos</strong>: grupos sociales a los que una persona pertenecía desde el día en que nacía hasta que moría. Casi nunca se podía pasar de un estamento a otro.</p>
+
+    <div class="grid">
+      <div class="card red"><span class="emoji">🗡️</span><h4>Señor feudal</h4><p>Protegía el feudo, administraba justicia y cobraba impuestos, muchas veces en forma de parte de las cosechas.</p></div>
+      <div class="card red"><span class="emoji">👑</span><h4>Nobleza</h4><p>Estamento muy privilegiado: no pagaba impuestos, aunque más adelante su poder fue disminuyendo.</p></div>
+      <div class="card red"><span class="emoji">🏪</span><h4>Burguesía</h4><p>Nació en las ciudades. No era un estamento cerrado: se podía ascender o descender económicamente. Se organizaba en <strong>maestro</strong> (dueño del taller), <strong>oficial</strong> (lo ayudaba) y <strong>aprendiz</strong> (estaba aprendiendo el oficio).</p></div>
+      <div class="card red"><span class="emoji">🌾</span><h4>Campesinos</h4><p>Pagaban impuestos al señor feudal. Se dividían en <strong>siervos</strong> (totalmente sometidos, no podían irse del feudo) y <strong>campesinos libres</strong> (no dependían de nadie).</p></div>
+    </div>
   </div>
 </section>
 
@@ -333,6 +423,10 @@ footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
 
     <p style="margin-top:40px;">En las ciudades también había <strong>gremios</strong>: grupos de artesanos (herreros, zapateros, panaderos, tejedores) que se organizaban entre ellos para fabricar y vender sus productos, y para enseñar el oficio a nuevos aprendices.</p>
     <p>Cada cierto tiempo se armaban <strong>ferias</strong>: encuentros grandes donde comerciantes de distintos lugares iban a comprar y vender productos. Poco a poco, empezaron a usarse más las monedas, aunque el trueque seguía siendo muy común.</p>
+
+    <h3 class="center" style="margin-top:50px;">El sistema trienal</h3>
+    <p>Con el tiempo apareció el <strong>sistema trienal</strong>: la tierra se dividía en tres partes, y cada año se dejaba <strong>descansar</strong> una de ellas mientras las otras dos se cultivaban. Así el suelo se agotaba menos y la producción de alimentos aumentó.</p>
+    <p>Como había más comida, la población creció. Algunos pueblos tenían productos de sobra y otros los necesitaban, así que el <strong>comercio</strong> volvió a activarse. Pero viajar con monedas encima era peligroso: los mercaderes podían ser robados en el camino. Por eso aparecieron los <strong>pagarés</strong> (letras de cambio): un papel que funcionaba como una promesa de pago, parecido a un cheque actual, y que evitaba tener que cargar con el dinero.</p>
   </div>
 </section>
 
@@ -371,6 +465,24 @@ footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
       <div class="card red"><span class="emoji">📜</span><h4>Manuscritos</h4><p>Libros copiados a mano por los monjes.</p></div>
       <div class="card red"><span class="emoji">🎓</span><h4>Universidades</h4><p>Bolonia, París y Salamanca, las primeras.</p></div>
       <div class="card red"><span class="emoji">🗣️</span><h4>Nuevas lenguas</h4><p>Del latín nacieron el español, el francés y más.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4d. ALTA Y BAJA EDAD MEDIA ===================== -->
+<section data-era="media" style="background:#FFF3EF;">
+  <div class="wrap">
+    <h2 class="section-title">Alta y Baja Edad Media</h2>
+    <p class="section-sub">Casi 1000 años no fueron todos iguales</p>
+
+    <p>La Edad Media se divide en dos grandes etapas. La <strong>Alta Edad Media</strong> (siglos V al X) fue más rural y aislada. La <strong>Baja Edad Media</strong> (siglos XI al XV) tuvo más ciudades, más comercio y nuevas ideas.</p>
+    <p>En la <strong>Alta Edad Media</strong> se pensaba que las enfermedades eran <strong>castigos de Dios</strong>. El arte era casi siempre religioso: se representaban figuras de Jesús, la Virgen y los santos, y casi no había imágenes de personas comunes.</p>
+    <p>En la <strong>Baja Edad Media</strong>, con las ciudades creciendo, aparecieron ideas nuevas. Se creía que los niños eran "adultos pequeños" y se los trataba como tales desde muy chicos. También se pensaba que había que sufrir en esta vida para ganarse el cielo, aunque la gente con más dinero empezó a valorar disfrutar también de la vida terrenal. Además, se creía en el <strong>geocentrismo</strong>: la idea de que la Tierra estaba quieta en el centro del universo.</p>
+
+    <div class="grid">
+      <div class="card red"><span class="emoji">🕯️</span><h4>Alta Edad Media</h4><p>Enfermedades = castigo divino. Arte casi solo religioso.</p></div>
+      <div class="card red"><span class="emoji">🏙️</span><h4>Baja Edad Media</h4><p>Crecen las ciudades. Nuevas ideas sobre la niñez y la vida.</p></div>
+      <div class="card red"><span class="emoji">🌍</span><h4>Geocentrismo</h4><p>Se creía que la Tierra era el centro del universo.</p></div>
     </div>
   </div>
 </section>
@@ -415,15 +527,17 @@ footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
 <section data-era="moderna" style="background:#F3EEFB;">
   <div class="wrap">
     <h2 class="section-title">Sociedad en la Edad Moderna</h2>
-    <p class="section-sub">Aparece un grupo nuevo</p>
+    <p class="section-sub">Privilegiados contra no privilegiados</p>
+
+    <p>La sociedad moderna seguía dividida en estamentos, pero ahora se distinguían claramente dos grandes grupos: los <strong>privilegiados</strong> y los <strong>no privilegiados</strong>.</p>
+    <p>Los <strong>privilegiados</strong> eran una minoría, pero tenían la mayor parte de las tierras y no pagaban impuestos. La <strong>nobleza</strong> vivía de las rentas y de lo que cobraba a los campesinos. El <strong>clero</strong> cobraba el <strong>diezmo</strong>: una décima parte de todo lo que producía la gente.</p>
+    <p>Los <strong>no privilegiados</strong> eran más del 90% de la población: pagaban impuestos y hacían todo el trabajo, sin participar en la política. Dentro de este grupo estaba la <strong>burguesía</strong> (comerciantes, artesanos ricos y profesionales), que aunque no tenía privilegios legales, se hizo tan rica gracias al comercio que empezó a rivalizar con la nobleza.</p>
 
     <div class="grid">
-      <div class="card purple"><span class="emoji">👑</span><h4>Rey</h4><p>Tenía aún más poder que antes.</p></div>
-      <div class="card purple"><span class="emoji">🏰</span><h4>Nobleza</h4><p>Seguía teniendo privilegios.</p></div>
-      <div class="card purple"><span class="emoji">⛪</span><h4>Clero</h4><p>Seguía siendo muy importante.</p></div>
-      <div class="card purple"><span class="emoji">💰</span><h4>Burguesía</h4><p>Comerciantes y banqueros ricos. ¡Un grupo nuevo!</p></div>
-      <div class="card purple"><span class="emoji">🌾</span><h4>Campesinos</h4><p>Seguían trabajando la tierra.</p></div>
-      <div class="card purple"><span class="emoji">🏪</span><h4>Comerciantes</h4><p>Vendían productos de todo el mundo.</p></div>
+      <div class="card purple"><span class="emoji">👑</span><h4>Nobleza</h4><p>Privilegiada. No pagaba impuestos y vivía de rentas.</p></div>
+      <div class="card purple"><span class="emoji">⛪</span><h4>Clero</h4><p>Privilegiado. Cobraba el diezmo a la población.</p></div>
+      <div class="card purple"><span class="emoji">💰</span><h4>Burguesía</h4><p>No privilegiada, pero muy rica gracias al comercio.</p></div>
+      <div class="card purple"><span class="emoji">🌾</span><h4>Campesinos y artesanos</h4><p>Más del 90% de la población. Pagaban impuestos.</p></div>
     </div>
   </div>
 </section>
@@ -443,6 +557,17 @@ footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
     <p class="center" style="margin-top:30px; font-weight:700;">Así nació el <strong>comercio mundial</strong>: por primera vez, países muy lejanos intercambiaban productos.</p>
     <p style="margin-top:20px;">A esta forma de manejar la economía se la llama <strong>mercantilismo</strong>: los países europeos buscaban acumular la mayor cantidad de oro y plata posible, y por eso competían por tener más colonias y más comercio.</p>
     <p>Además del comercio de productos, en esta época ocurrió algo muy triste: la <strong>trata de personas esclavizadas</strong>, que eran llevadas a la fuerza desde África hacia América para trabajar. Es una parte oscura pero real de la historia, importante para conocer y recordar.</p>
+
+    <h3 class="center" style="margin-top:50px;">Más cambios en la economía</h3>
+    <p>La llegada masiva de oro y plata desde América provocó la <strong>Revolución de los Precios</strong>: al circular mucho más metal, los precios subieron mucho (inflación). Esto perjudicó a la gente más pobre, pero ayudó a que comerciantes y banqueros acumularan más capital.</p>
+    <p>La <strong>agricultura</strong> seguía siendo la actividad más importante, pero empezó a orientarse a vender en el mercado, y no solo al consumo propio de la familia.</p>
+    <p>En las ciudades, además de los talleres de los gremios, apareció el <strong>trabajo a domicilio</strong> (familias que fabricaban productos en su propia casa para un comerciante) y las <strong>Reales Fábricas</strong>, un primer paso hacia la producción de bienes en cantidades mucho más grandes.</p>
+
+    <div class="grid" style="margin-top:20px;">
+      <div class="card purple"><span class="emoji">📈</span><h4>Revolución de los Precios</h4><p>Inflación por la llegada de oro y plata de América.</p></div>
+      <div class="card purple"><span class="emoji">🧵</span><h4>Trabajo a domicilio</h4><p>Familias que fabricaban productos en su propia casa.</p></div>
+      <div class="card purple"><span class="emoji">🏭</span><h4>Reales Fábricas</h4><p>Primer paso hacia la producción a gran escala.</p></div>
+    </div>
   </div>
 </section>
 
@@ -455,12 +580,16 @@ footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
     <p>A diferencia del feudalismo, ahora se formaron <strong>Estados modernos</strong>: territorios grandes, con fronteras más definidas, un solo ejército y leyes iguales para todo el reino.</p>
     <p>Surgió la <strong>monarquía absoluta</strong>: el rey tenía todo el poder, sin ningún límite, y decía gobernar "por voluntad de Dios". El rey francés Luis XIV es famoso por la frase <em>"El Estado soy yo"</em>, que resume muy bien esta idea.</p>
     <p>España y Portugal, y luego otros países como Inglaterra, Francia y Holanda, conquistaron y colonizaron territorios en América, África y Asia, formando grandes imperios coloniales.</p>
+    <p>Para gobernar territorios tan grandes, los reyes necesitaban ayuda: crearon una <strong>burocracia</strong>, es decir, un cuerpo de funcionarios, ministros y diplomáticos profesionales que dependían directamente de la corona.</p>
+    <p>También cambiaron los ejércitos: en vez de depender de los soldados que cada noble aportaba (las mesnadas feudales), el rey formó <strong>ejércitos permanentes</strong>, pagados con los impuestos del reino. Y nació la <strong>diplomacia</strong> moderna: embajadores que representaban a su país de forma constante en otros reinos.</p>
 
     <div class="grid">
       <div class="card purple"><span class="emoji">👑</span><h4>Monarquía absoluta</h4><p>El rey tenía todo el poder, sin límites.</p></div>
       <div class="card purple"><span class="emoji">🗺️</span><h4>Estados modernos</h4><p>Territorios con fronteras, ejército y leyes propias.</p></div>
       <div class="card purple"><span class="emoji">⚓</span><h4>Colonias</h4><p>Territorios conquistados en América, África y Asia.</p></div>
-      <div class="card purple"><span class="emoji">📜</span><h4>Leyes del reino</h4><p>Las mismas normas para todo el territorio.</p></div>
+      <div class="card purple"><span class="emoji">🖋️</span><h4>Burocracia</h4><p>Funcionarios y ministros que trabajaban para el rey.</p></div>
+      <div class="card purple"><span class="emoji">🎖️</span><h4>Ejércitos permanentes</h4><p>Pagados con impuestos, ya no dependían de los nobles.</p></div>
+      <div class="card purple"><span class="emoji">🤝</span><h4>Diplomacia</h4><p>Embajadores que representaban a su país en el extranjero.</p></div>
     </div>
   </div>
 </section>
@@ -513,6 +642,7 @@ footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
           <tr><th>Tema</th><th>🏰 Edad Media</th><th>🚢 Edad Moderna</th></tr>
         </thead>
         <tbody>
+          <tr><td>Territorio</td><td>👑 Reinos cristianos y repúblicas italianas</td><td>🗺️ Grandes imperios coloniales</td></tr>
           <tr><td>Sociedad</td><td>👑 Rey, nobles y campesinos</td><td>💰 Rey, nobleza y burguesía nueva</td></tr>
           <tr><td>Economía</td><td>🌾 Agricultura y trueque</td><td>🚢 Comercio mundial y dinero</td></tr>
           <tr><td>Religión</td><td>⛪ La Iglesia dominaba todo</td><td>⛪ Importante, pero surgen nuevas ideas</td></tr>
@@ -527,6 +657,7 @@ footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
           <tr><td>Política</td><td>🗡️ Muchos señores feudales</td><td>👑 Estados con un rey absoluto</td></tr>
           <tr><td>Arte / Cultura</td><td>⛪ Románico y gótico, arte religioso</td><td>🎨 Renacimiento: Da Vinci, Miguel Ángel</td></tr>
           <tr><td>Ciencia</td><td>🌍 Se creía que la Tierra era el centro</td><td>🔭 Copérnico: la Tierra gira alrededor del Sol</td></tr>
+          <tr><td>Impuestos</td><td>🌾 Los cobraba cada señor feudal</td><td>💰 Los cobraba el Estado real</td></tr>
         </tbody>
       </table>
     </div>
@@ -543,21 +674,25 @@ footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
         <div class="col">
           <h4>🏰 Edad Media</h4>
           <ul>
-            <li>✔ Castillos</li>
-            <li>✔ Agricultura</li>
-            <li>✔ Feudalismo</li>
-            <li>✔ Iglesia</li>
-            <li>✔ Campesinos</li>
+            <li>✔ Castillos y feudos</li>
+            <li>✔ Agricultura y sistema trienal</li>
+            <li>✔ Feudalismo y señores feudales</li>
+            <li>✔ Poder de la Iglesia y las Cruzadas</li>
+            <li>✔ Estamentos: nobleza, clero, burguesía, campesinos</li>
+            <li>✔ Siervos y campesinos libres</li>
+            <li>✔ Catedrales, manuscritos y universidades</li>
           </ul>
         </div>
         <div class="col">
           <h4>🚢 Edad Moderna</h4>
           <ul>
-            <li>✔ Comercio</li>
-            <li>✔ América</li>
-            <li>✔ Dinero</li>
-            <li>✔ Imprenta</li>
-            <li>✔ Burguesía</li>
+            <li>✔ Comercio mundial y mercantilismo</li>
+            <li>✔ Descubrimiento de América y colonias</li>
+            <li>✔ Monarquía absoluta y Estados modernos</li>
+            <li>✔ Burguesía y sociedad de privilegiados</li>
+            <li>✔ Imprenta y Renacimiento</li>
+            <li>✔ Reforma Protestante</li>
+            <li>✔ Revolución de los Precios</li>
           </ul>
         </div>
       </div>
@@ -568,9 +703,9 @@ footer{padding:40px 0 60px; text-align:center; color:#8b84a3; font-weight:700;}
 <!-- ===================== 12. QUIZ ===================== -->
 <section id="quiz-section">
   <div class="wrap">
-    <h2 class="section-title">Mini cuestionario 🧠</h2>
-    <p class="section-sub">Elegí una respuesta para cada pregunta</p>
-    <div id="quiz-score">Aciertos: 0 / 25</div>
+    <h2 class="section-title">Cuestionario completo 🧠</h2>
+    <p class="section-sub">Opción múltiple, Verdadero o Falso, completar y relacionar</p>
+    <div id="quiz-score">Aciertos: 0 / 0</div>
     <div id="quiz-container"></div>
   </div>
 </section>
@@ -609,8 +744,26 @@ const observer = new IntersectionObserver((entries) => {
 }, {threshold:0.5});
 sections.forEach(s => observer.observe(s));
 
-/* ===== Quiz ===== */
-const questions = [
+/* ===== Animación de aparición al hacer scroll ===== */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12});
+document.querySelectorAll('body > section').forEach(s => {
+  s.classList.add('reveal');
+  revealObserver.observe(s);
+});
+
+/* ===================================================
+   QUIZ — Opción múltiple, Verdadero/Falso,
+   Completar la palabra y Relacionar conceptos
+=================================================== */
+
+const mcQuestions = [
   {q:"¿En qué año empezó la Edad Media?", opts:["1492","476","1789","1000"], correct:1, why:"La Edad Media empezó en el año 476, cuando cayó el Imperio Romano."},
   {q:"¿En qué año terminó la Edad Media?", opts:["1492","476","1600","1800"], correct:0, why:"Terminó en 1492, cuando Colón llegó a América."},
   {q:"¿Quién tenía todo el poder en la Edad Media?", opts:["Los campesinos","El Rey","Los comerciantes","Los banqueros"], correct:1, why:"El rey gobernaba todo el reino."},
@@ -635,20 +788,105 @@ const questions = [
   {q:"¿Qué es una monarquía absoluta?", opts:["Un rey con poder limitado por leyes", "Un rey con todo el poder, sin límites", "Un gobierno sin rey", "Una alianza de nobles"], correct:1, why:"En la monarquía absoluta, el rey tenía todo el poder, sin ningún límite."},
   {q:"¿Qué fue la Reforma Protestante?", opts:["Un invento tecnológico", "Un cuestionamiento a la Iglesia católica que originó nuevas religiones", "Una guerra con América", "Una ley del feudalismo"], correct:1, why:"Martín Lutero cuestionó a la Iglesia católica en 1517 y surgieron nuevas religiones cristianas."},
   {q:"¿Quiénes fueron dos grandes artistas del Renacimiento?", opts:["Colón y Magallanes", "Leonardo da Vinci y Miguel Ángel", "Lutero y Gutenberg", "Copérnico y Galileo"], correct:1, why:"Leonardo da Vinci y Miguel Ángel fueron grandes artistas del Renacimiento italiano."},
-  {q:"¿Qué afirmó el científico Copérnico?", opts:["Que la Tierra es el centro del universo", "Que la Tierra gira alrededor del Sol", "Que existía la peste", "Que América era parte de Asia"], correct:1, why:"Copérnico afirmó que la Tierra gira alrededor del Sol, y no al revés como se pensaba antes."}
+  {q:"¿Qué afirmó el científico Copérnico?", opts:["Que la Tierra es el centro del universo", "Que la Tierra gira alrededor del Sol", "Que existía la peste", "Que América era parte de Asia"], correct:1, why:"Copérnico afirmó que la Tierra gira alrededor del Sol, y no al revés como se pensaba antes."},
+  {q:"¿Qué eran Venecia, Génova y Pisa en la Edad Media?", opts:["Reinos cristianos", "Pequeñas repúblicas que vivían del comercio", "Imperios", "Universidades"], correct:1, why:"No tenían rey: eran repúblicas independientes que vivían del comercio marítimo."},
+  {q:"¿Quién gobernaba el Imperio Bizantino?", opts:["Un Papa", "Un emperador con poder absoluto", "Un parlamento", "Un señor feudal"], correct:1, why:"El Imperio Bizantino estaba gobernado por un emperador con poder absoluto."},
+  {q:"¿Qué eran los estamentos?", opts:["Tipos de castillos", "Grupos sociales a los que se pertenecía desde el nacimiento", "Monedas medievales", "Ejércitos reales"], correct:1, why:"Los estamentos eran grupos sociales fijos: casi nunca se podía cambiar de uno a otro."},
+  {q:"Dentro de la burguesía medieval, ¿quién era el dueño del taller?", opts:["El aprendiz", "El oficial", "El maestro", "El señor feudal"], correct:2, why:"El maestro era el dueño del taller; el oficial lo ayudaba y el aprendiz estaba aprendiendo el oficio."},
+  {q:"¿Qué diferencia había entre siervos y campesinos libres?", opts:["Los siervos vivían en la ciudad", "Los siervos estaban sometidos al señor feudal y los libres no", "No había ninguna diferencia", "Los libres pagaban más impuestos"], correct:1, why:"Los siervos estaban totalmente sometidos y no podían irse del feudo; los libres no dependían de nadie."},
+  {q:"¿En qué etapa se creía que las enfermedades eran castigos de Dios?", opts:["En la Alta Edad Media", "En la Edad Moderna", "En el Renacimiento", "En la actualidad"], correct:0, why:"Esta idea era típica de la Alta Edad Media, cuando el arte y las creencias eran casi todas religiosas."},
+  {q:"¿Qué es el sistema trienal?", opts:["Dividir la tierra en tres partes para rotar los cultivos", "Un tipo de gobierno", "Una moneda", "Un ejército de tres reyes"], correct:0, why:"El sistema trienal dejaba descansar una parte de la tierra cada año, aumentando la producción."},
+  {q:"¿Para qué servían los pagarés?", opts:["Para rezar en la iglesia", "Para evitar llevar monedas y viajar más seguro", "Para construir castillos", "Para declarar guerras"], correct:1, why:"Los pagarés (letras de cambio) evitaban que los mercaderes llevaran monedas encima, muy riesgoso en los caminos."},
+  {q:"¿Qué era la burocracia en la Edad Moderna?", opts:["Un ejército", "Funcionarios y ministros que trabajaban para el rey", "Un tipo de arte", "Una religión nueva"], correct:1, why:"La burocracia era el cuerpo de funcionarios y diplomáticos que ayudaban a gobernar al rey."},
+  {q:"¿Qué eran los ejércitos permanentes?", opts:["Soldados que cada noble prestaba al rey", "Ejércitos pagados con impuestos, que dependían del rey", "Ejércitos de mercenarios extranjeros", "Grupos de piratas"], correct:1, why:"Reemplazaron a las mesnadas feudales: ahora el rey pagaba un ejército propio con los impuestos del reino."},
+  {q:"¿Qué provocó la Revolución de los Precios?", opts:["Que bajaran los precios", "Que subieran mucho los precios (inflación)", "Que desapareciera el dinero", "Que se prohibiera el comercio"], correct:1, why:"La llegada masiva de oro y plata de América generó una fuerte inflación en Europa."},
+  {q:"¿Qué eran las Reales Fábricas?", opts:["Talleres de gremios medievales", "Un paso hacia la producción en cantidades más grandes", "Castillos reales", "Universidades"], correct:1, why:"Las Reales Fábricas anticiparon la producción a gran escala que después sería típica de la industria."},
+  {q:"¿Quiénes formaban parte de los \"privilegiados\" en la Edad Moderna?", opts:["Burguesía y campesinos", "Nobleza y clero", "Comerciantes y artesanos", "Siervos y aprendices"], correct:1, why:"Nobleza y clero no pagaban impuestos y tenían la mayoría de las tierras."},
+  {q:"¿Qué era el diezmo?", opts:["Un impuesto que cobraba el clero", "Una moneda de oro", "Un tipo de barco", "Una ley del rey"], correct:0, why:"El diezmo era una décima parte de la producción que la gente debía entregar a la Iglesia."},
+  {q:"¿Qué porcentaje aproximado de la población eran los \"no privilegiados\"?", opts:["Menos del 10%", "Más del 90%", "Exactamente la mitad", "Ninguno"], correct:1, why:"Los no privilegiados (burguesía, artesanos, campesinos) eran la inmensa mayoría de la población."}
+];
+
+const tfQuestions = [
+  {q:"En la Edad Media, muchas personas creían que la Tierra estaba en el centro del universo.", correct:true, why:"Se llama geocentrismo, y era la idea dominante en la Edad Media."},
+  {q:"En la Alta Edad Media, el arte representaba sobre todo escenas de la vida cotidiana de la gente común.", correct:false, why:"En la Alta Edad Media el arte era casi todo religioso: figuras de Jesús, la Virgen y los santos, no de personas comunes."},
+  {q:"Los siervos eran campesinos totalmente libres que podían irse del feudo cuando quisieran.", correct:false, why:"Los siervos estaban sometidos al señor feudal; los que sí eran libres se llamaban campesinos libres."},
+  {q:"El clero, en la Edad Moderna, no pagaba impuestos y cobraba el diezmo a la población.", correct:true, why:"El clero era parte de los privilegiados y cobraba el diezmo (una décima parte de lo producido)."},
+  {q:"La Revolución de los Precios hizo que bajaran los precios en Europa.", correct:false, why:"Fue al revés: la llegada de oro y plata de América generó inflación, es decir, subieron los precios."},
+  {q:"En la Edad Moderna nacieron las Reales Fábricas, un paso hacia la producción en masa.", correct:true, why:"Las Reales Fábricas anticiparon formas de producción a mayor escala."},
+  {q:"La burguesía formaba parte de los privilegiados en la Edad Moderna.", correct:false, why:"La burguesía pertenecía al pueblo llano (no privilegiados), aunque acumulaba mucha riqueza."},
+  {q:"El sistema trienal consistía en dividir la tierra en tres partes para rotar los cultivos y dejar descansar el suelo.", correct:true, why:"Así la tierra se agotaba menos y aumentaba la producción de alimentos."},
+  {q:"Las Cruzadas fueron guerras comerciales entre Venecia y Génova.", correct:false, why:"Las Cruzadas fueron guerras religiosas entre cristianos y musulmanes por el control de Jerusalén."},
+  {q:"El Renacimiento puso al ser humano, y no solo a Dios, en el centro del arte.", correct:true, why:"Esa es una de las ideas centrales del Renacimiento, inspirada en Grecia y Roma antigua."}
+];
+
+const fillQuestions = [
+  {q:"El sistema donde el rey daba tierras a cambio de lealtad se llama ______.", answers:["feudalismo"], why:"El feudalismo organizaba la política y la economía de la Edad Media."},
+  {q:"El monje que en 1517 cuestionó a la Iglesia católica y dio origen a la Reforma Protestante se llamaba ______.", answers:["lutero","martin lutero","martín lutero"], why:"Martín Lutero inició la Reforma Protestante en 1517."},
+  {q:"El Renacimiento nació en el país europeo llamado ______.", answers:["italia"], why:"El Renacimiento nació en Italia y luego se extendió por Europa."},
+  {q:"En la Edad Moderna, el sistema económico que buscaba acumular oro y plata se llama ______.", answers:["mercantilismo"], why:"El mercantilismo medía la riqueza de un país por la cantidad de metales preciosos que acumulaba."},
+  {q:"El documento que permitía a los mercaderes viajar sin llevar monedas encima se llamaba ______ (o letra de cambio).", answers:["pagare","pagaré","letra de cambio"], why:"El pagaré funcionaba como una promesa de pago, parecido a un cheque actual."},
+  {q:"El impuesto que el clero cobraba a la población, equivalente a una décima parte de lo producido, se llama ______.", answers:["diezmo"], why:"El diezmo era uno de los principales ingresos de la Iglesia."},
+  {q:"Los artesanos se organizaban en grupos llamados ______ para fabricar y vender sus productos.", answers:["gremios"], why:"Los gremios agrupaban a artesanos del mismo oficio, como herreros o zapateros."},
+  {q:"El instrumento que ayudaba a los barcos a orientarse en el mar se llama ______.", answers:["brujula","brújula"], why:"La brújula fue clave para los grandes viajes de la Edad Moderna."}
+];
+
+const matchQuestions = [
+  {title:"Relacioná cada estamento medieval con su función", pairs:[
+    ["Señor feudal","Protegía el feudo y cobraba impuestos"],
+    ["Nobleza","Estamento privilegiado que no pagaba impuestos"],
+    ["Burguesía","Comerciantes y artesanos que podían ascender económicamente"],
+    ["Campesinos","Trabajaban la tierra y pagaban impuestos"]
+  ]},
+  {title:"Relacioná cada personaje con su aporte en la Edad Moderna", pairs:[
+    ["Gutenberg","Inventó la imprenta"],
+    ["Copérnico","Dijo que la Tierra gira alrededor del Sol"],
+    ["Martín Lutero","Inició la Reforma Protestante"],
+    ["Leonardo da Vinci","Pintó la Mona Lisa"]
+  ]},
+  {title:"Relacioná cada concepto económico de la Edad Moderna", pairs:[
+    ["Mercantilismo","Acumular la mayor cantidad de oro y plata"],
+    ["Revolución de los Precios","Inflación por la llegada de metales de América"],
+    ["Reales Fábricas","Primer paso hacia la producción en masa"],
+    ["Trabajo a domicilio","Familias que fabricaban productos en su propia casa"]
+  ]}
 ];
 
 const container = document.getElementById('quiz-container');
 const scoreEl = document.getElementById('quiz-score');
 let score = 0;
-let answered = 0;
+let maxScore = mcQuestions.length + tfQuestions.length + fillQuestions.length +
+  matchQuestions.reduce((sum, m) => sum + m.pairs.length, 0);
+scoreEl.textContent = 'Aciertos: 0 / ' + maxScore;
 
-questions.forEach((item, i) => {
+function updateScore(delta){
+  score += delta;
+  scoreEl.textContent = 'Aciertos: ' + score + ' / ' + maxScore;
+}
+
+function addTypeLabel(text, sub){
+  const label = document.createElement('span');
+  label.className = 'quiz-type-label';
+  label.textContent = text;
+  container.appendChild(label);
+  if(sub){
+    const s = document.createElement('p');
+    s.className = 'quiz-type-sub';
+    s.textContent = sub;
+    container.appendChild(s);
+  }
+}
+
+let qNum = 0;
+
+/* ----- Opción múltiple ----- */
+addTypeLabel('✅ Opción múltiple', 'Elegí la respuesta correcta');
+mcQuestions.forEach((item) => {
+  qNum++;
   const card = document.createElement('div');
   card.className = 'q-card';
 
   const title = document.createElement('h4');
-  title.textContent = (i+1) + '. ' + item.q;
+  title.textContent = qNum + '. ' + item.q;
   card.appendChild(title);
 
   const feedback = document.createElement('div');
@@ -661,20 +899,17 @@ questions.forEach((item, i) => {
     btn.addEventListener('click', () => {
       const buttons = card.querySelectorAll('.opt');
       buttons.forEach(b => b.disabled = true);
-
       if(idx === item.correct){
         btn.classList.add('correct');
         feedback.textContent = '¡Correcto! ' + item.why;
         feedback.className = 'feedback ok';
-        score++;
+        updateScore(1);
       } else {
         btn.classList.add('wrong');
         buttons[item.correct].classList.add('correct');
         feedback.textContent = 'Inténtalo otra vez. ' + item.why;
         feedback.className = 'feedback bad';
       }
-      answered++;
-      scoreEl.textContent = 'Aciertos: ' + score + ' / ' + questions.length;
     });
     card.appendChild(btn);
   });
@@ -682,6 +917,192 @@ questions.forEach((item, i) => {
   card.appendChild(feedback);
   container.appendChild(card);
 });
+
+/* ----- Verdadero o Falso ----- */
+addTypeLabel('⚖️ Verdadero o Falso', 'Decidí si la afirmación es correcta');
+tfQuestions.forEach((item) => {
+  qNum++;
+  const card = document.createElement('div');
+  card.className = 'q-card';
+
+  const title = document.createElement('h4');
+  title.textContent = qNum + '. ' + item.q;
+  card.appendChild(title);
+
+  const row = document.createElement('div');
+  row.className = 'tf-buttons';
+
+  const feedback = document.createElement('div');
+  feedback.className = 'feedback';
+
+  [['Verdadero', true], ['Falso', false]].forEach(([label, value]) => {
+    const btn = document.createElement('button');
+    btn.className = 'tf-btn';
+    btn.textContent = label;
+    btn.addEventListener('click', () => {
+      const buttons = row.querySelectorAll('.tf-btn');
+      buttons.forEach(b => b.disabled = true);
+      if(value === item.correct){
+        btn.classList.add('correct');
+        feedback.textContent = '¡Correcto! ' + item.why;
+        feedback.className = 'feedback ok';
+        updateScore(1);
+      } else {
+        btn.classList.add('wrong');
+        buttons[item.correct ? 0 : 1].classList.add('correct');
+        feedback.textContent = 'Inténtalo otra vez. ' + item.why;
+        feedback.className = 'feedback bad';
+      }
+    });
+    row.appendChild(btn);
+  });
+
+  card.appendChild(row);
+  card.appendChild(feedback);
+  container.appendChild(card);
+});
+
+/* ----- Completar la palabra ----- */
+addTypeLabel('✏️ Completá la palabra', 'Escribí la palabra que falta');
+fillQuestions.forEach((item) => {
+  qNum++;
+  const card = document.createElement('div');
+  card.className = 'q-card';
+
+  const title = document.createElement('h4');
+  title.textContent = qNum + '. ' + item.q;
+  card.appendChild(title);
+
+  const row = document.createElement('div');
+  row.className = 'fill-row';
+
+  const input = document.createElement('input');
+  input.className = 'fill-input';
+  input.type = 'text';
+  input.placeholder = 'Escribí tu respuesta...';
+
+  const btn = document.createElement('button');
+  btn.className = 'fill-btn';
+  btn.textContent = 'Comprobar';
+
+  const feedback = document.createElement('div');
+  feedback.className = 'feedback';
+
+  function normalize(str){
+    return str.trim().toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function check(){
+    const val = normalize(input.value);
+    const ok = item.answers.some(a => normalize(a) === val);
+    input.disabled = true;
+    btn.disabled = true;
+    if(ok){
+      input.classList.add('correct');
+      feedback.textContent = '¡Correcto! ' + item.why;
+      feedback.className = 'feedback ok';
+      updateScore(1);
+    } else {
+      input.classList.add('wrong');
+      feedback.textContent = 'La respuesta era "' + item.answers[0] + '". ' + item.why;
+      feedback.className = 'feedback bad';
+    }
+  }
+
+  btn.addEventListener('click', check);
+  input.addEventListener('keydown', (e) => { if(e.key === 'Enter') check(); });
+
+  row.appendChild(input);
+  row.appendChild(btn);
+  card.appendChild(row);
+  card.appendChild(feedback);
+  container.appendChild(card);
+});
+
+/* ----- Relacionar conceptos ----- */
+addTypeLabel('🔗 Relacioná los conceptos', 'Tocá un término y después su definición');
+matchQuestions.forEach((mq) => {
+  const card = document.createElement('div');
+  card.className = 'q-card';
+
+  const title = document.createElement('h4');
+  title.textContent = mq.title;
+  card.appendChild(title);
+
+  const wrap = document.createElement('div');
+  wrap.className = 'match-wrap';
+
+  const terms = mq.pairs.map(p => p[0]);
+  const defs = shuffleArray(mq.pairs.map(p => p[1]));
+
+  const colTerms = document.createElement('div');
+  colTerms.className = 'match-col';
+  const colDefs = document.createElement('div');
+  colDefs.className = 'match-col';
+
+  let selectedTerm = null;
+  let matchedCount = 0;
+
+  const progress = document.createElement('div');
+  progress.className = 'match-progress';
+  progress.textContent = 'Emparejados: 0 / ' + mq.pairs.length;
+
+  terms.forEach((term) => {
+    const item = document.createElement('button');
+    item.className = 'match-item';
+    item.textContent = term;
+    item.addEventListener('click', () => {
+      if(item.classList.contains('matched')) return;
+      colTerms.querySelectorAll('.match-item').forEach(b => b.classList.remove('selected'));
+      item.classList.add('selected');
+      selectedTerm = { term, el: item };
+    });
+    colTerms.appendChild(item);
+  });
+
+  defs.forEach((def) => {
+    const item = document.createElement('button');
+    item.className = 'match-item';
+    item.textContent = def;
+    item.addEventListener('click', () => {
+      if(item.classList.contains('matched') || !selectedTerm) return;
+      const pair = mq.pairs.find(p => p[0] === selectedTerm.term);
+      if(pair && pair[1] === def){
+        item.classList.add('matched');
+        selectedTerm.el.classList.add('matched');
+        selectedTerm.el.classList.remove('selected');
+        matchedCount++;
+        updateScore(1);
+        progress.textContent = 'Emparejados: ' + matchedCount + ' / ' + mq.pairs.length;
+        if(matchedCount === mq.pairs.length){
+          progress.textContent = '¡Completado! ' + matchedCount + ' / ' + mq.pairs.length + ' 🎉';
+        }
+      } else {
+        item.classList.add('wrong-flash');
+        setTimeout(() => item.classList.remove('wrong-flash'), 500);
+      }
+      selectedTerm.el.classList.remove('selected');
+      selectedTerm = null;
+    });
+    colDefs.appendChild(item);
+  });
+
+  wrap.appendChild(colTerms);
+  wrap.appendChild(colDefs);
+  card.appendChild(wrap);
+  card.appendChild(progress);
+  container.appendChild(card);
+});
+
+function shuffleArray(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 </script>
 </body>
 </html>
